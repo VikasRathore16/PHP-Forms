@@ -1,4 +1,30 @@
 <?php
+if (isset($_GET)) {
+  $num1 = $_GET['num1'];
+  $num2 = $_GET['num2'];
+  $operator = $_GET['submit'];
+}
+
+switch ($operator) {
+  case "+":
+    $result = $num1 + $num2;
+    break;
+  case "*":
+    $result = $num1 * $num2;
+    break;
+  case "-":
+    $result = $num1 - $num2;
+    break;
+  case "/":
+    if($num2 <0 or $num2=="" or $num1==""){
+     echo "<span style='color:red'>Cannot be divided by zero and Value should not be empty</span>";
+    }
+    else{
+      $result = $num1 / $num2;
+    }
+    
+    break;
+}
 
 ?>
 <!DOCTYPE html>
@@ -14,16 +40,26 @@
 
 <body>
   <div class="wrapper">
-    <form>
+    <h3> A simple calculator</h3>
+    <form method="GET" action="">
       <div class="user">
         <dv class="col">
-          <label for="Name" class="row">Name</label>
+          <label for="Number 1" class="row">Number 1</label>
+          <label for="Number 2" class="row">Number 2</label>
+          <label for="Result" class="row">Result</label>
         </dv>
         <div class="col">
-          <input type="text" id="Name" required>
+          <input type="text" id="unit" name="num1">
+          <input type="text" id="unit" name="num2">
+          <input type="text" id="unit" name="result" value="<?php echo $result ?>">
         </div>
       </div>
-      <input type="submit" value="Submit" id="submit">
+      <div class="btn">
+        <input type="submit" value="+" name="submit">
+        <input type="submit" value="-" name="submit">
+        <input type="submit" value="*" name="submit">
+        <input type="submit" value="/" name="submit">
+      </div>
     </form>
   </div>
 </body>
