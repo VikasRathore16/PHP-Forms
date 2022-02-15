@@ -1,5 +1,14 @@
 <?php
-
+if(isset($_GET)){
+   $inp = $_GET["inp"];
+  $time = $_GET["time"];
+}
+if($time == "minute"){
+  $result = "<h4>$inp hr = ".$inp * 60 ." minutes</h4>";
+}
+elseif($time == "second" ){
+  $result = "<h4>$inp hrs = ".($inp * 60) * 60 ." seconds </h4>" ;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,15 +24,24 @@
 <body>
   <div class="wrapper">
     <form>
-      <div class="user">
-        <dv class="col">
-          <label for="Name" class="row">Name</label>
-        </dv>
-        <div class="col">
-          <input type="text" id="Name" required>
+      <div class="time">
+        <label for="hours" class="hours">
+          <input type="number" value="1" id="ihours" name="inp">
+        </label>
+        <div class="min-sec">
+          <input type="radio" name="time" id="minute" value="minute">
+          <label for="minute" class="minute">hours to minutes</label>
+          <br>
+          <input type="radio" name="time" id="second" value="second">
+          <label for="second" class="second">Hours to second</label>
         </div>
+        <div class="result">
+          <p id="res"><?php echo $result ?></p>
+        </div>
+        <input type="submit" value="Convert" name="convert" id="btn">
+        
+   
       </div>
-      <input type="submit" value="Submit" id="submit">
     </form>
   </div>
 </body>
