@@ -1,4 +1,13 @@
 <?php
+// Turn off all error reporting
+error_reporting(0);
+if (isset($_GET)) {
+  $length = $_GET['length'];
+  $width = $_GET['width'];
+}
+$area = $length * $width;
+$perimeter = 2*($length + $width);
+
 
 ?>
 <!DOCTYPE html>
@@ -14,17 +23,25 @@
 
 <body>
   <div class="wrapper">
-    <form>
+    <h3> Area and Perimeter</h3>
+    <form method="GET" action="">
       <div class="user">
         <dv class="col">
-          <label for="Name" class="row">Name</label>
+          <label for="Length" class="row">Length of Rectangle</label>
+          <label for="Width" class="row">Width of Rectangle</label>
         </dv>
         <div class="col">
-          <input type="text" id="Name" required>
+          <input type="text" name="length">
+          <input type="text"  name="width">
+          
         </div>
       </div>
-      <input type="submit" value="Submit" id="submit">
+      <div class="btn">
+        <input type="submit" value="Calculate Perimeter And Area" name="submit">
+      </div>
     </form>
+    <h3>Area of Rectangle : <?php echo $area ?> sq_mtr</h3>
+    <h3>Perimeter of Rectangle : <?php echo $perimeter ?> mtr</h3>
   </div>
 </body>
 
