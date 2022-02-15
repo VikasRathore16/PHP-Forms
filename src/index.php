@@ -14,17 +14,12 @@
 
 <body>
   <div class="wrapper">
-    <form>
-      <div class="user">
-        <dv class="col">
-          <label for="Name" class="row">Name</label>
-        </dv>
-        <div class="col">
-          <input type="text" id="Name" required>
-        </div>
-      </div>
-      <input type="submit" value="Submit" id="submit">
-    </form>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+
   </div>
 </body>
 
